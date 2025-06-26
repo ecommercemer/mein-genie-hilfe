@@ -2,8 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-green-50 overflow-hidden">
       {/* Background decorative elements */}
@@ -30,15 +33,14 @@ const Hero = () => {
 
           {/* Main headline */}
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight animate-fade-in delay-200">
-            Der einfachste Weg durch die{" "}
             <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-              deutsche Bürokratie
+              {t('hero.title')}
             </span>
           </h2>
 
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed animate-fade-in delay-400">
-            Sparen Sie Zeit, vermeiden Sie Stress. Unser KI-Assistent füllt Formulare aus und vereinbart Termine für Sie.
+            {t('hero.subtitle')}
           </p>
 
           {/* CTA Buttons */}
@@ -48,7 +50,7 @@ const Hero = () => {
                 size="lg" 
                 className="text-lg px-8 py-6 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
-                Jetzt Formular starten
+                {t('hero.cta.formino')}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
@@ -58,7 +60,7 @@ const Hero = () => {
                 variant="outline" 
                 className="text-lg px-8 py-6 border-2 border-blue-200 text-blue-600 hover:bg-blue-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
-                Termin buchen lassen
+                {t('hero.cta.termino')}
                 <Play className="ml-2 w-5 h-5" />
               </Button>
             </Link>
@@ -91,7 +93,7 @@ const Hero = () => {
               <div className="mt-8 p-4 bg-green-50 rounded-xl border border-green-200">
                 <div className="flex items-center justify-center gap-2 text-green-600">
                   <CheckCircle className="w-6 h-6" />
-                  <span className="font-semibold">Automatisch ausgefüllt</span>
+                  <span className="font-semibold">{t('hero.filled')}</span>
                 </div>
               </div>
             </div>

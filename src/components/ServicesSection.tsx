@@ -1,120 +1,120 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { FileText, Phone, ArrowRight, Sparkles, Calendar } from "lucide-react";
+import { FileText, Calendar, Download, ArrowRight, Sparkles, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ServicesSection = () => {
+  const { t } = useLanguage();
+
+  const services = [
+    {
+      title: t('services.formino.title'),
+      description: t('services.formino.desc'),
+      detail: t('services.formino.detail'),
+      icon: FileText,
+      color: "blue",
+      link: "/formino",
+      downloadText: t('services.formino.download')
+    },
+    {
+      title: t('services.termino.title'),
+      description: t('services.termino.desc'),
+      detail: t('services.termino.detail'),
+      icon: Phone,
+      color: "green",
+      link: "/termino",
+      downloadText: t('services.termino.download')
+    }
+  ];
+
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Unsere Services
+              {t('services.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Zwei leistungsstarke KI-Assistenten, die Ihnen bei allen bürokratischen Aufgaben helfen
+              {t('services.subtitle')}
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Formino Service */}
-            <Card className="relative overflow-hidden border-0 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-blue-50 to-white">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-transparent rounded-bl-full"></div>
-              <CardHeader className="pb-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center">
-                    <FileText className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-3xl font-bold text-blue-600">Formino</CardTitle>
-                    <CardDescription className="text-lg text-gray-600">
-                      Intelligente Formularausfüllung
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Laden Sie einfach ein Formular hoch oder teilen Sie einen Link. 
-                  Unser KI-Assistent füllt es automatisch für Sie aus.
-                </p>
+          <div className="grid md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <Card 
+                key={index} 
+                className="group relative overflow-hidden border-2 border-gray-100 hover:border-blue-200 transition-all duration-300 hover:shadow-xl hover:scale-105"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${
+                  service.color === 'blue' 
+                    ? 'from-blue-50 to-blue-100' 
+                    : 'from-green-50 to-green-100'
+                } opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                 
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <Sparkles className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">OCR und Web-Formular-Analyse</span>
+                <CardHeader className="relative z-10">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${
+                      service.color === 'blue' 
+                        ? 'bg-gradient-to-r from-blue-500 to-blue-600' 
+                        : 'bg-gradient-to-r from-green-500 to-green-600'
+                    }`}>
+                      <service.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-2xl text-gray-900 group-hover:text-blue-600 transition-colors">
+                        {service.title}
+                      </CardTitle>
+                      <CardDescription className="text-lg font-medium text-gray-600">
+                        {service.description}
+                      </CardDescription>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <Sparkles className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Lernt aus Ihrem Profil</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Sparkles className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Mehrsprachige Unterstützung</span>
-                  </div>
-                </div>
-
-                <div className="pt-4">
-                  <p className="text-sm text-gray-600 mb-4">
-                    <strong>Anwendungsfälle:</strong> Visa, Anmeldung, Versicherung, Universität
-                  </p>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl">
-                    Formular jetzt starten
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Termino Service */}
-            <Card className="relative overflow-hidden border-0 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-green-50 to-white">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/10 to-transparent rounded-bl-full"></div>
-              <CardHeader className="pb-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center">
-                    <Phone className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-3xl font-bold text-green-600">Termino</CardTitle>
-                    <CardDescription className="text-lg text-gray-600">
-                      KI-Telefonassistent
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Unser KI-Assistent ruft für Sie an und vereinbart Termine. 
-                  Keine Warteschleifen mehr!
-                </p>
+                </CardHeader>
                 
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <Calendar className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-700">Intelligente Terminplanung</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Calendar className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-700">Kalender-Synchronisation</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Calendar className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-700">Automatische Vorschläge</span>
-                  </div>
-                </div>
-
-                <div className="pt-4">
-                  <p className="text-sm text-gray-600 mb-4">
-                    <strong>Anwendungsfälle:</strong> Ausländerbehörde, Arzt, Fahrzeugstelle
+                <CardContent className="relative z-10">
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {service.detail}
                   </p>
-                  <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl">
-                    Termin buchen lassen
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
+                  
+                  <div className="space-y-4">
+                    <Link to={service.link}>
+                      <Button 
+                        className={`w-full ${
+                          service.color === 'blue' 
+                            ? 'bg-blue-600 hover:bg-blue-700' 
+                            : 'bg-green-600 hover:bg-green-700'
+                        } text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300`}
+                      >
+                        Mehr erfahren
+                        <ArrowRight className="ml-2 w-5 h-5" />
+                      </Button>
+                    </Link>
+                    
+                    <Button 
+                      variant="outline" 
+                      className={`w-full border-2 ${
+                        service.color === 'blue' 
+                          ? 'border-blue-200 text-blue-600 hover:bg-blue-50' 
+                          : 'border-green-200 text-green-600 hover:bg-green-50'
+                      } rounded-xl transition-all duration-300`}
+                    >
+                      <Download className="mr-2 w-5 h-5" />
+                      {service.downloadText}
+                    </Button>
+                  </div>
+                </CardContent>
+                
+                {/* Floating decoration */}
+                <div className={`absolute -top-2 -right-2 w-8 h-8 ${
+                  service.color === 'blue' ? 'bg-blue-400' : 'bg-green-400'
+                } rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300`}>
+                  <Sparkles className="w-4 h-4 text-white m-2" />
                 </div>
-              </CardContent>
-            </Card>
+              </Card>
+            ))}
           </div>
         </div>
       </div>

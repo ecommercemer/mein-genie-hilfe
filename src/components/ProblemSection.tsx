@@ -1,22 +1,25 @@
 
 import { Clock, Globe, FileText } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProblemSection = () => {
+  const { t } = useLanguage();
+
   const problems = [
     {
       icon: FileText,
-      title: "Komplexe Formulare",
-      description: "Deutsche Bürokratie kann überwältigend sein, besonders in einer neuen Sprache."
+      title: t('problems.forms'),
+      description: t('problems.forms.desc')
     },
     {
       icon: Globe,
-      title: "Sprachbarrieren",
-      description: "Schwierige Fachbegriffe und komplizierte Anweisungen verstehen."
+      title: t('problems.language'),
+      description: t('problems.language.desc')
     },
     {
       icon: Clock,
-      title: "Zeitverlust",
-      description: "Stunden damit verbringen, Formulare auszufüllen und Termine zu vereinbaren."
+      title: t('problems.time'),
+      description: t('problems.time.desc')
     }
   ];
 
@@ -25,10 +28,10 @@ const ProblemSection = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Probleme, die wir lösen
+            {t('problems.title')}
           </h2>
           <p className="text-xl text-gray-600 mb-16">
-            Wir verstehen die Herausforderungen des deutschen Verwaltungssystems
+            {t('problems.subtitle')}
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">

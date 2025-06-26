@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Menu, X, Globe } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,7 +13,7 @@ import {
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState("de");
+  const { language, setLanguage, t } = useLanguage();
 
   const languages = [
     { code: "de", name: "Deutsch", flag: "🇩🇪" },
@@ -22,14 +23,14 @@ const Navigation = () => {
   ];
 
   const navItems = [
-    { name: "Services", href: "#", dropdown: [
-      { name: "Formino", href: "/formino" },
-      { name: "Termino", href: "/termino" }
+    { name: t('nav.services'), href: "#", dropdown: [
+      { name: t('nav.formino'), href: "/formino" },
+      { name: t('nav.termino'), href: "/termino" }
     ]},
-    { name: "About", href: "/about" },
-    { name: "Blog", href: "/blog" },
-    { name: "FAQ", href: "/faq" },
-    { name: "Contact", href: "/contact" }
+    { name: t('nav.about'), href: "/about" },
+    { name: t('nav.blog'), href: "/blog" },
+    { name: t('nav.faq'), href: "/faq" },
+    { name: t('nav.contact'), href: "/contact" }
   ];
 
   return (
@@ -54,10 +55,10 @@ const Navigation = () => {
                   <DropdownMenuTrigger className="text-gray-700 hover:text-blue-600 transition-colors">
                     {item.name}
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent>
+                  <DropdownMenuContent className="bg-white">
                     {item.dropdown.map((subItem) => (
                       <DropdownMenuItem key={subItem.name} asChild>
-                        <Link to={subItem.href}>{subItem.name}</Link>
+                        <Link to={subItem.href} className="hover:bg-gray-50">{subItem.name}</Link>
                       </DropdownMenuItem>
                     ))}
                   </DropdownMenuContent>
@@ -80,15 +81,15 @@ const Navigation = () => {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="gap-2">
                   <Globe className="w-4 h-4" />
-                  {languages.find(lang => lang.code === currentLanguage)?.flag}
+                  {languages.find(lang => lang.code === language)?.flag}
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent className="bg-white">
                 {languages.map((lang) => (
                   <DropdownMenuItem
                     key={lang.code}
-                    onClick={() => setCurrentLanguage(lang.code)}
-                    className="gap-2"
+                    onClick={() => setLanguage(lang.code as any)}
+                    className="gap-2 hover:bg-gray-50"
                   >
                     <span>{lang.flag}</span>
                     {lang.name}
@@ -98,10 +99,10 @@ const Navigation = () => {
             </DropdownMenu>
 
             <Link to="/login">
-              <Button variant="ghost">Login</Button>
+              <Button variant="ghost">{t('nav.login')}</Button>
             </Link>
             <Link to="/register">
-              <Button>Sign Up</Button>
+              <Button>{t('nav.signup')}</Button>
             </Link>
           </div>
 
@@ -148,10 +149,10 @@ const Navigation = () => {
               ))}
               <div className="pt-4 border-t">
                 <Link to="/login" onClick={() => setIsMenuOpen(false)}>
-                  <Button variant="ghost" className="w-full mb-2">Login</Button>
+                  <Button variant="ghost" className="w-full mb-2">{t('nav.login')}</Button>
                 </Link>
                 <Link to="/register" onClick={() => setIsMenuOpen(false)}>
-                  <Button className="w-full">Sign Up</Button>
+                  <Button className="w-full">{t('nav.signup')}</Button>
                 </Link>
               </div>
             </div>

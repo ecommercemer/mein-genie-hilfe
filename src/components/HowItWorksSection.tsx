@@ -1,24 +1,27 @@
 
 import { Upload, Sparkles, CheckCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HowItWorksSection = () => {
+  const { t } = useLanguage();
+
   const steps = [
     {
       icon: Upload,
-      title: "Upload",
-      description: "Laden Sie Ihr Formular hoch, teilen Sie einen Link oder geben Sie Details ein.",
+      title: t('how.upload'),
+      description: t('how.upload.desc'),
       color: "blue"
     },
     {
       icon: Sparkles,
-      title: "KI-Analyse",
-      description: "Unsere intelligente KI verarbeitet und analysiert Ihre Anfrage automatisch.",
+      title: t('how.ai'),
+      description: t('how.ai.desc'),
       color: "purple"
     },
     {
       icon: CheckCircle,
-      title: "Prüfen & Senden",
-      description: "Sie überprüfen das Ergebnis und geben Ihre finale Zustimmung.",
+      title: t('how.check'),
+      description: t('how.check.desc'),
       color: "green"
     }
   ];
@@ -28,10 +31,10 @@ const HowItWorksSection = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            So funktioniert es
+            {t('how.title')}
           </h2>
           <p className="text-xl text-gray-600 mb-16">
-            In nur drei einfachen Schritten zu Ihrem Ziel
+            {t('how.subtitle')}
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">

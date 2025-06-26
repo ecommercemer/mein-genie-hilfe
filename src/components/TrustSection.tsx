@@ -1,27 +1,30 @@
 
 import { Shield, Lock, CheckCircle, Eye } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const TrustSection = () => {
+  const { t } = useLanguage();
+
   const features = [
     {
       icon: Shield,
-      title: "Geräteinterne KI-Verarbeitung",
-      description: "Ihre Daten verlassen niemals Ihr Gerät während der Verarbeitung"
+      title: t('trust.local'),
+      description: t('trust.local.desc')
     },
     {
       icon: CheckCircle,
-      title: "DSGVO-konform",
-      description: "Vollständige Einhaltung europäischer Datenschutzbestimmungen"
+      title: t('trust.gdpr'),
+      description: t('trust.gdpr.desc')
     },
     {
       icon: Lock,
-      title: "Ende-zu-Ende-Verschlüsselung",
-      description: "Alle Ihre Daten sind durch modernste Verschlüsselung geschützt"
+      title: t('trust.encryption'),
+      description: t('trust.encryption.desc')
     },
     {
       icon: Eye,
-      title: "Doppelte Benutzerprüfung",
-      description: "Sie haben immer die finale Kontrolle vor dem Versenden"
+      title: t('trust.control'),
+      description: t('trust.control.desc')
     }
   ];
 
@@ -31,11 +34,10 @@ const TrustSection = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Ihre Daten sind bei uns sicher
+              {t('trust.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Vertrauen und Sicherheit stehen bei uns an erster Stelle. 
-              Ihre Privatsphäre ist unser höchstes Gut.
+              {t('trust.subtitle')}
             </p>
           </div>
 

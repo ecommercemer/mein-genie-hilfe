@@ -1,8 +1,11 @@
 
 import { Star, Quote } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const TestimonialsSection = () => {
+  const { t } = useLanguage();
+
   const testimonials = [
     {
       name: "Ahmad Hassan",
@@ -33,10 +36,10 @@ const TestimonialsSection = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Was unsere Nutzer sagen
+              {t('testimonials.title')}
             </h2>
             <p className="text-xl text-gray-600">
-              Echte Erfahrungen von Menschen, die wir unterstützt haben
+              {t('testimonials.subtitle')}
             </p>
           </div>
 
