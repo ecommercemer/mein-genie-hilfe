@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -13,59 +14,34 @@ const Termino = () => {
   const features = [
     {
       icon: Phone,
-      title: "AI Phone Assistant",
-      description: "Our AI makes phone calls on your behalf with perfect German",
+      title: t('termino.ai.title'),
+      description: t('termino.ai.desc'),
       link: "/ai-phone-assistant"
     },
     {
       icon: Calendar,
-      title: "Smart Scheduling",
-      description: "Automatic calendar integration and conflict detection",
+      title: t('termino.scheduling.title'),
+      description: t('termino.scheduling.desc'),
       link: "/smart-scheduling"
     },
     {
       icon: CheckCircle,
-      title: "Confirmation System",
-      description: "Instant notifications and appointment confirmations",
+      title: t('termino.confirmation.title'),
+      description: t('termino.confirmation.desc'),
       link: "/confirmation-system"
     },
     {
       icon: Shield,
-      title: "Secure Communication",
-      description: "All conversations are recorded and encrypted for your safety",
+      title: t('termino.communication.title'),
+      description: t('termino.communication.desc'),
       link: "/secure-communication"
-    }
-  ];
-
-  const useCases = [
-    "Foreigner's Office (Ausländerbehörde)",
-    "Doctor Appointments",
-    "Vehicle Registration Office (Zulassungsstelle)",
-    "Tax Office (Finanzamt)",
-    "City Hall (Rathaus)",
-    "Embassy Appointments",
-    "University Admissions",
-    "Bank Consultations"
-  ];
-
-  const faqItems = [
-    {
-      question: "How does the AI phone assistant work?",
-      answer: "Our AI calls on your behalf, explains your needs in perfect German, and books the appointment at your preferred time."
-    },
-    {
-      question: "What if the appointment needs to be rescheduled?",
-      answer: "We handle all rescheduling automatically and notify you of any changes immediately."
-    },
-    {
-      question: "Is the service available 24/7?",
-      answer: "Yes, you can request appointments anytime. We'll make the calls during business hours."
     }
   ];
 
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
+      <BackButton />
       
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
@@ -75,17 +51,17 @@ const Termino = () => {
               AI Appointment Assistant
             </Badge>
             <h1 className="text-5xl font-bold text-gray-900 mb-6">
-              Termino: AI-Powered <span className="text-green-600">Appointment Booking</span>
+              {t('termino.title')}
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Skip the phone queues and language barriers. Our AI assistant calls and books appointments for you in perfect German.
+              {t('termino.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8 py-6 bg-green-600 hover:bg-green-700">
-                Book Your First Appointment
+                {t('common.getstarted')}
               </Button>
               <Button size="lg" variant="outline" className="text-lg px-8 py-6">
-                Listen to Demo Call
+                Demo anhören
               </Button>
             </div>
           </div>
@@ -97,10 +73,10 @@ const Termino = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Revolutionary Features
+              {t('termino.features.title')}
             </h2>
             <p className="text-xl text-gray-600">
-              The first AI that actually makes phone calls for you
+              {t('termino.features.subtitle')}
             </p>
           </div>
           

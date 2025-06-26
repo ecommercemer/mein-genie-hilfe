@@ -1,12 +1,46 @@
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 import { Phone, MessageSquare, Clock, CheckCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const AIPhoneAssistantPage = () => {
+  const { t } = useLanguage();
+
+  const aiFeatures = [
+    {
+      icon: MessageSquare,
+      title: t('ai.conversation.title'),
+      description: t('ai.conversation.desc'),
+      link: "/natural-conversation"
+    },
+    {
+      icon: Clock,
+      title: t('ai.availability.title'),
+      description: t('ai.availability.desc'),
+      link: "/availability"
+    },
+    {
+      icon: CheckCircle,
+      title: t('ai.guarantee.title'),
+      description: t('ai.guarantee.desc'),
+      link: "/success-guarantee"
+    },
+    {
+      icon: Phone,
+      title: t('ai.attempts.title'),
+      description: t('ai.attempts.desc'),
+      link: "/multiple-attempts"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
+      <BackButton />
       
       <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
         <div className="container mx-auto px-6">
@@ -15,10 +49,10 @@ const AIPhoneAssistantPage = () => {
               <Phone className="w-10 h-10 text-green-600" />
             </div>
             <h1 className="text-5xl font-bold text-gray-900 mb-6">
-              AI Phone Assistant
+              {t('termino.ai.title')}
             </h1>
             <p className="text-xl text-gray-600 mb-12">
-              Advanced AI that makes phone calls on your behalf with perfect German
+              {t('termino.ai.desc')}
             </p>
           </div>
         </div>
@@ -29,26 +63,19 @@ const AIPhoneAssistantPage = () => {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12">AI Assistant Features</h2>
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="text-center p-6 border rounded-xl">
-                <MessageSquare className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Natural Conversation</h3>
-                <p className="text-gray-600">Speaks naturally with German officials</p>
-              </div>
-              <div className="text-center p-6 border rounded-xl">
-                <Clock className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">24/7 Availability</h3>
-                <p className="text-gray-600">Makes calls during business hours</p>
-              </div>
-              <div className="text-center p-6 border rounded-xl">
-                <CheckCircle className="w-12 h-12 text-purple-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Success Guarantee</h3>
-                <p className="text-gray-600">Ensures appointments are booked successfully</p>
-              </div>
-              <div className="text-center p-6 border rounded-xl">
-                <Phone className="w-12 h-12 text-orange-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Multiple Attempts</h3>
-                <p className="text-gray-600">Keeps trying until successful</p>
-              </div>
+              {aiFeatures.map((feature, index) => (
+                <Link key={index} to={feature.link}>
+                  <Card className="text-center p-6 border rounded-xl hover:shadow-lg transition-shadow cursor-pointer">
+                    <CardHeader>
+                      <feature.icon className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+                      <CardTitle className="text-xl font-semibold mb-2">{feature.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-gray-600">{feature.description}</CardDescription>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

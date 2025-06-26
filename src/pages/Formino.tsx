@@ -1,5 +1,7 @@
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -13,26 +15,26 @@ const Formino = () => {
   const features = [
     {
       icon: FileText,
-      title: "OCR Technology",
-      description: "Automatically extract information from scanned documents and forms",
+      title: t('formino.ocr.title'),
+      description: t('formino.ocr.desc'),
       link: "/ocr-technology"
     },
     {
       icon: Upload,
-      title: "Multiple Input Methods",
-      description: "Upload photos, PDFs, or paste web form links",
+      title: t('formino.input.title'),
+      description: t('formino.input.desc'),
       link: "/multiple-input-methods"
     },
     {
       icon: CheckCircle,
-      title: "Smart Validation",
-      description: "AI validates all information before submission",
+      title: t('formino.validation.title'),
+      description: t('formino.validation.desc'),
       link: "/smart-validation"
     },
     {
       icon: Shield,
-      title: "Secure Processing",
-      description: "All data processed locally with end-to-end encryption",
+      title: t('formino.security.title'),
+      description: t('formino.security.desc'),
       link: "/secure-processing"
     }
   ];
@@ -66,6 +68,7 @@ const Formino = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
+      <BackButton />
       
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50">
@@ -75,17 +78,17 @@ const Formino = () => {
               AI Form Assistant
             </Badge>
             <h1 className="text-5xl font-bold text-gray-900 mb-6">
-              Formino: Smart Form <span className="text-blue-600">Autofill</span>
+              {t('formino.title')}
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Never struggle with complex German forms again. Our AI assistant reads, understands, and fills out any form in seconds.
+              {t('formino.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8 py-6">
-                Start Your First Form
+                {t('common.getstarted')}
               </Button>
               <Button size="lg" variant="outline" className="text-lg px-8 py-6">
-                Watch Demo
+                Demo ansehen
               </Button>
             </div>
           </div>
@@ -97,10 +100,10 @@ const Formino = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Powerful Features
+              {t('formino.features.title')}
             </h2>
             <p className="text-xl text-gray-600">
-              Advanced AI technology that understands German bureaucracy
+              {t('formino.features.subtitle')}
             </p>
           </div>
           
