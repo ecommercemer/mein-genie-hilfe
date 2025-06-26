@@ -1,5 +1,7 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -41,21 +43,25 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in delay-600">
-            <Button 
-              size="lg" 
-              className="text-lg px-8 py-6 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              Jetzt Formular starten
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="text-lg px-8 py-6 border-2 border-blue-200 text-blue-600 hover:bg-blue-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              Termin buchen lassen
-              <Play className="ml-2 w-5 h-5" />
-            </Button>
+            <Link to="/formino">
+              <Button 
+                size="lg" 
+                className="text-lg px-8 py-6 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
+                Jetzt Formular starten
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+            <Link to="/termino">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="text-lg px-8 py-6 border-2 border-blue-200 text-blue-600 hover:bg-blue-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
+                Termin buchen lassen
+                <Play className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
           </div>
 
           {/* Visual representation */}
