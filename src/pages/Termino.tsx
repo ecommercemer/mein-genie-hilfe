@@ -1,32 +1,39 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Phone, Calendar, CheckCircle, Shield, Clock, Users, Star } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Termino = () => {
+  const { t } = useLanguage();
+  
   const features = [
     {
       icon: Phone,
       title: "AI Phone Assistant",
-      description: "Our AI makes phone calls on your behalf with perfect German"
+      description: "Our AI makes phone calls on your behalf with perfect German",
+      link: "/ai-phone-assistant"
     },
     {
       icon: Calendar,
       title: "Smart Scheduling",
-      description: "Automatic calendar integration and conflict detection"
+      description: "Automatic calendar integration and conflict detection",
+      link: "/smart-scheduling"
     },
     {
       icon: CheckCircle,
       title: "Confirmation System",
-      description: "Instant notifications and appointment confirmations"
+      description: "Instant notifications and appointment confirmations",
+      link: "/confirmation-system"
     },
     {
       icon: Shield,
       title: "Secure Communication",
-      description: "All conversations are recorded and encrypted for your safety"
+      description: "All conversations are recorded and encrypted for your safety",
+      link: "/secure-communication"
     }
   ];
 
@@ -99,17 +106,19 @@ const Termino = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="w-6 h-6 text-green-600" />
-                  </div>
-                  <CardTitle className="text-lg">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{feature.description}</CardDescription>
-                </CardContent>
-              </Card>
+              <Link key={index} to={feature.link}>
+                <Card className="text-center hover:shadow-lg transition-shadow cursor-pointer h-full">
+                  <CardHeader>
+                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <feature.icon className="w-6 h-6 text-green-600" />
+                    </div>
+                    <CardTitle className="text-lg">{feature.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>{feature.description}</CardDescription>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
@@ -123,7 +132,16 @@ const Termino = () => {
               Perfect For All German Appointments
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {useCases.map((useCase, index) => (
+              {[
+                "Foreigner's Office (Ausländerbehörde)",
+                "Doctor Appointments",
+                "Vehicle Registration Office (Zulassungsstelle)",
+                "Tax Office (Finanzamt)",
+                "City Hall (Rathaus)",
+                "Embassy Appointments",
+                "University Admissions",
+                "Bank Consultations"
+              ].map((useCase, index) => (
                 <div key={index} className="bg-white p-4 rounded-lg shadow-sm border flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-600" />
                   <span className="text-gray-700">{useCase}</span>
@@ -210,7 +228,20 @@ const Termino = () => {
               Frequently Asked Questions
             </h2>
             <div className="space-y-6">
-              {faqItems.map((item, index) => (
+              {[
+                {
+                  question: "How does the AI phone assistant work?",
+                  answer: "Our AI calls on your behalf, explains your needs in perfect German, and books the appointment at your preferred time."
+                },
+                {
+                  question: "What if the appointment needs to be rescheduled?",
+                  answer: "We handle all rescheduling automatically and notify you of any changes immediately."
+                },
+                {
+                  question: "Is the service available 24/7?",
+                  answer: "Yes, you can request appointments anytime. We'll make the calls during business hours."
+                }
+              ].map((item, index) => (
                 <Card key={index}>
                   <CardHeader>
                     <CardTitle className="text-lg">{item.question}</CardTitle>

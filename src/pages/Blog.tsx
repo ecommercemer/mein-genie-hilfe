@@ -5,14 +5,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { Calendar, User } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Blog = () => {
+  const { t } = useLanguage();
+  
   const blogPosts = [
     {
       slug: "german-visa-guide-2024",
       title: "Complete Guide to German Visa Application 2024",
       excerpt: "Everything you need to know about applying for a German visa, from required documents to common mistakes to avoid.",
-      category: "Guides",
+      category: t('blog.categories.guides'),
       author: "Mein Genie Team",
       date: "2024-01-15",
       readTime: "8 min read"
@@ -21,7 +24,7 @@ const Blog = () => {
       slug: "anmeldung-process-explained",
       title: "Anmeldung in Germany: Step-by-Step Process",
       excerpt: "Learn how to register your address in Germany (Anmeldung) with our comprehensive guide and tips.",
-      category: "Tips",
+      category: t('blog.categories.tips'),
       author: "Sarah Miller",
       date: "2024-01-10",
       readTime: "5 min read"
@@ -30,14 +33,14 @@ const Blog = () => {
       slug: "formino-ai-updates",
       title: "Formino AI Gets Smarter: New Features Update",
       excerpt: "Discover the latest improvements to our AI form-filling technology and how they can save you even more time.",
-      category: "Updates",
+      category: t('blog.categories.updates'),
       author: "Tech Team",
       date: "2024-01-05",
       readTime: "3 min read"
     }
   ];
 
-  const categories = ["All", "Guides", "Tips", "Updates"];
+  const categories = [t('blog.categories.all'), t('blog.categories.guides'), t('blog.categories.tips'), t('blog.categories.updates')];
 
   return (
     <div className="min-h-screen bg-white">
@@ -48,10 +51,10 @@ const Blog = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold text-gray-900 mb-6">
-              Mein Genie Blog
+              {t('blog.title')}
             </h1>
             <p className="text-xl text-gray-600">
-              Guides, tips, and insights to help you navigate German bureaucracy with confidence.
+              {t('blog.subtitle')}
             </p>
           </div>
         </div>
@@ -102,7 +105,7 @@ const Blog = () => {
                         to={`/blog/${post.slug}`}
                         className="text-blue-600 hover:underline font-medium"
                       >
-                        Read More
+                        {t('blog.readmore')}
                       </Link>
                       <span className="text-sm text-gray-500">{post.readTime}</span>
                     </div>

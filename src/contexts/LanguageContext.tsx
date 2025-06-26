@@ -30,7 +30,6 @@ const translations = {
     'hero.subtitle': 'Sparen Sie Zeit, vermeiden Sie Stress. Unser KI-Assistent füllt Formulare aus und vereinbart Termine für Sie.',
     'hero.cta.formino': 'Jetzt Formular starten',
     'hero.cta.termino': 'Termin buchen lassen',
-    'hero.filled': 'Automatisch ausgefüllt',
     
     // Problems
     'problems.title': 'Probleme, die wir lösen',
@@ -80,14 +79,33 @@ const translations = {
     'testimonials.title': 'Was unsere Nutzer sagen',
     'testimonials.subtitle': 'Echte Erfahrungen von Menschen, die wir unterstützt haben',
     
+    // Blog
+    'blog.title': 'Mein Genie Blog',
+    'blog.subtitle': 'Leitfäden, Tipps und Einblicke, um Ihnen zu helfen, die deutsche Bürokratie selbstbewusst zu navigieren.',
+    'blog.readmore': 'Weiterlesen',
+    'blog.categories.all': 'Alle',
+    'blog.categories.guides': 'Leitfäden',
+    'blog.categories.tips': 'Tipps',
+    'blog.categories.updates': 'Updates',
+    
     // Footer
-    'footer.tagline': 'Bureaucracy, simplified. Ihr persönlicher Genius für Papierkram und Termine.',
+    'footer.tagline': 'Bürokratie, vereinfacht. Ihr persönlicher Genius für Papierkram und Termine.',
     'footer.company': 'Unternehmen',
     'footer.services': 'Services',
     'footer.support': 'Support',
     'footer.legal': 'Rechtliches',
     'footer.rights': 'Alle Rechte vorbehalten.',
-    'footer.phone': '+4917686315894'
+    'footer.phone': '+4917686315894',
+    'footer.feedback': 'Feedback',
+    'footer.help': 'Hilfe-Center',
+    'footer.status': 'Status',
+    'footer.privacy': 'Datenschutz',
+    'footer.terms': 'AGB',
+    'footer.imprint': 'Impressum',
+    'footer.cookies': 'Cookies',
+    'footer.career': 'Karriere',
+    'footer.press': 'Presse',
+    'footer.prices': 'Preise'
   },
   en: {
     // Navigation
@@ -106,7 +124,6 @@ const translations = {
     'hero.subtitle': 'Save time, avoid stress. Our AI assistant fills out forms and books appointments for you.',
     'hero.cta.formino': 'Start Form Now',
     'hero.cta.termino': 'Book Appointment',
-    'hero.filled': 'Automatically filled',
     
     // Problems
     'problems.title': 'Problems we solve',
@@ -156,6 +173,15 @@ const translations = {
     'testimonials.title': 'What our users say',
     'testimonials.subtitle': 'Real experiences from people we have supported',
     
+    // Blog
+    'blog.title': 'Mein Genie Blog',
+    'blog.subtitle': 'Guides, tips, and insights to help you navigate German bureaucracy with confidence.',
+    'blog.readmore': 'Read More',
+    'blog.categories.all': 'All',
+    'blog.categories.guides': 'Guides',
+    'blog.categories.tips': 'Tips',
+    'blog.categories.updates': 'Updates',
+    
     // Footer
     'footer.tagline': 'Bureaucracy, simplified. Your personal genius for paperwork and appointments.',
     'footer.company': 'Company',
@@ -163,7 +189,17 @@ const translations = {
     'footer.support': 'Support',
     'footer.legal': 'Legal',
     'footer.rights': 'All rights reserved.',
-    'footer.phone': '+4917686315894'
+    'footer.phone': '+4917686315894',
+    'footer.feedback': 'Feedback',
+    'footer.help': 'Help Center',
+    'footer.status': 'Status',
+    'footer.privacy': 'Privacy',
+    'footer.terms': 'Terms',
+    'footer.imprint': 'Imprint',
+    'footer.cookies': 'Cookies',
+    'footer.career': 'Career',
+    'footer.press': 'Press',
+    'footer.prices': 'Prices'
   },
   fa: {
     // Navigation
@@ -182,7 +218,6 @@ const translations = {
     'hero.subtitle': 'در زمان صرفه‌جویی کنید، از استرس دوری کنید. دستیار هوش مصنوعی ما فرم‌ها را پر می‌کند و قرارهای ملاقات برای شما رزرو می‌کند.',
     'hero.cta.formino': 'شروع فرم اکنون',
     'hero.cta.termino': 'رزرو قرار ملاقات',
-    'hero.filled': 'به طور خودکار پر شده',
     
     // Problems
     'problems.title': 'مشکلاتی که حل می‌کنیم',
@@ -232,6 +267,15 @@ const translations = {
     'testimonials.title': 'آنچه کاربران ما می‌گویند',
     'testimonials.subtitle': 'تجربیات واقعی از افرادی که ما پشتیبانی کرده‌ایم',
     
+    // Blog
+    'blog.title': 'بلاگ من جنی',
+    'blog.subtitle': 'راهنماها، نکات و بینش‌هایی برای کمک به شما در پیمایش بوروکراسی آلمان با اعتماد به نفس.',
+    'blog.readmore': 'ادامه مطلب',
+    'blog.categories.all': 'همه',
+    'blog.categories.guides': 'راهنماها',
+    'blog.categories.tips': 'نکات',
+    'blog.categories.updates': 'به‌روزرسانی‌ها',
+    
     // Footer
     'footer.tagline': 'بوروکراسی، ساده شده. نابغه شخصی شما برای کاغذبازی و قرارهای ملاقات.',
     'footer.company': 'شرکت',
@@ -239,7 +283,17 @@ const translations = {
     'footer.support': 'پشتیبانی',
     'footer.legal': 'قانونی',
     'footer.rights': 'تمام حقوق محفوظ است.',
-    'footer.phone': '+4917686315894'
+    'footer.phone': '+4917686315894',
+    'footer.feedback': 'بازخورد',
+    'footer.help': 'مرکز راهنمایی',
+    'footer.status': 'وضعیت',
+    'footer.privacy': 'حریم خصوصی',
+    'footer.terms': 'شرایط',
+    'footer.imprint': 'مهر',
+    'footer.cookies': 'کوکی‌ها',
+    'footer.career': 'شغل',
+    'footer.press': 'مطبوعات',
+    'footer.prices': 'قیمت‌ها'
   },
   ar: {
     // Navigation
@@ -258,7 +312,6 @@ const translations = {
     'hero.subtitle': 'وفر الوقت، تجنب التوتر. مساعدنا الذكي يملأ النماذج ويحجز المواعيد لك.',
     'hero.cta.formino': 'ابدأ النموذج الآن',
     'hero.cta.termino': 'احجز موعداً',
-    'hero.filled': 'مُعبأ تلقائياً',
     
     // Problems
     'problems.title': 'المشاكل التي نحلها',
@@ -308,6 +361,15 @@ const translations = {
     'testimonials.title': 'ما يقوله مستخدمونا',
     'testimonials.subtitle': 'تجارب حقيقية من أشخاص دعمناهم',
     
+    // Blog
+    'blog.title': 'مدونة مين جيني',
+    'blog.subtitle': 'أدلة ونصائح ورؤى لمساعدتك على التنقل في البيروقراطية الألمانية بثقة.',
+    'blog.readmore': 'اقرأ المزيد',
+    'blog.categories.all': 'الكل',
+    'blog.categories.guides': 'أدلة',
+    'blog.categories.tips': 'نصائح',
+    'blog.categories.updates': 'تحديثات',
+    
     // Footer
     'footer.tagline': 'البيروقراطية، مبسطة. عبقريك الشخصي للأوراق والمواعيد.',
     'footer.company': 'الشركة',
@@ -315,7 +377,17 @@ const translations = {
     'footer.support': 'الدعم',
     'footer.legal': 'قانوني',
     'footer.rights': 'جميع الحقوق محفوظة.',
-    'footer.phone': '+4917686315894'
+    'footer.phone': '+4917686315894',
+    'footer.feedback': 'تعليقات',
+    'footer.help': 'مركز المساعدة',
+    'footer.status': 'الحالة',
+    'footer.privacy': 'الخصوصية',
+    'footer.terms': 'الشروط',
+    'footer.imprint': 'بصمة',
+    'footer.cookies': 'ملفات تعريف الارتباط',
+    'footer.career': 'مهنة',
+    'footer.press': 'صحافة',
+    'footer.prices': 'الأسعار'
   }
 };
 

@@ -1,5 +1,6 @@
 
 import { Upload, Sparkles, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const HowItWorksSection = () => {
@@ -10,19 +11,22 @@ const HowItWorksSection = () => {
       icon: Upload,
       title: t('how.upload'),
       description: t('how.upload.desc'),
-      color: "blue"
+      color: "blue",
+      link: "/upload"
     },
     {
       icon: Sparkles,
       title: t('how.ai'),
       description: t('how.ai.desc'),
-      color: "purple"
+      color: "purple",
+      link: "/ai-analysis"
     },
     {
       icon: CheckCircle,
       title: t('how.check'),
       description: t('how.check.desc'),
-      color: "green"
+      color: "green",
+      link: "/review-send"
     }
   ];
 
@@ -45,27 +49,29 @@ const HowItWorksSection = () => {
                   <div className="hidden md:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-gray-300 to-gray-200 z-0"></div>
                 )}
                 
-                <div className="relative z-10 bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                  <div className="relative mb-6">
-                    <div className={`w-20 h-20 mx-auto rounded-2xl flex items-center justify-center ${
-                      step.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
-                      step.color === 'purple' ? 'bg-gradient-to-r from-purple-500 to-purple-600' :
-                      'bg-gradient-to-r from-green-500 to-green-600'
-                    }`}>
-                      <step.icon className="w-10 h-10 text-white" />
+                <Link to={step.link} className="block">
+                  <div className="relative z-10 bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
+                    <div className="relative mb-6">
+                      <div className={`w-20 h-20 mx-auto rounded-2xl flex items-center justify-center ${
+                        step.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
+                        step.color === 'purple' ? 'bg-gradient-to-r from-purple-500 to-purple-600' :
+                        'bg-gradient-to-r from-green-500 to-green-600'
+                      }`}>
+                        <step.icon className="w-10 h-10 text-white" />
+                      </div>
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                        {index + 1}
+                      </div>
                     </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                      {index + 1}
-                    </div>
+                    
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {step.description}
+                    </p>
                   </div>
-                  
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
+                </Link>
               </div>
             ))}
           </div>

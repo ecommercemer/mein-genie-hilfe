@@ -1,32 +1,39 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FileText, Upload, CheckCircle, Shield, Clock, Users, Star } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Formino = () => {
+  const { t } = useLanguage();
+  
   const features = [
     {
       icon: FileText,
       title: "OCR Technology",
-      description: "Automatically extract information from scanned documents and forms"
+      description: "Automatically extract information from scanned documents and forms",
+      link: "/ocr-technology"
     },
     {
       icon: Upload,
       title: "Multiple Input Methods",
-      description: "Upload photos, PDFs, or paste web form links"
+      description: "Upload photos, PDFs, or paste web form links",
+      link: "/multiple-input-methods"
     },
     {
       icon: CheckCircle,
       title: "Smart Validation",
-      description: "AI validates all information before submission"
+      description: "AI validates all information before submission",
+      link: "/smart-validation"
     },
     {
       icon: Shield,
       title: "Secure Processing",
-      description: "All data processed locally with end-to-end encryption"
+      description: "All data processed locally with end-to-end encryption",
+      link: "/secure-processing"
     }
   ];
 
@@ -99,17 +106,19 @@ const Formino = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <CardTitle className="text-lg">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{feature.description}</CardDescription>
-                </CardContent>
-              </Card>
+              <Link key={index} to={feature.link}>
+                <Card className="text-center hover:shadow-lg transition-shadow cursor-pointer h-full">
+                  <CardHeader>
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <feature.icon className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <CardTitle className="text-lg">{feature.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>{feature.description}</CardDescription>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>

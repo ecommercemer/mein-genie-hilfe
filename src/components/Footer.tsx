@@ -11,26 +11,26 @@ const Footer = () => {
     company: [
       { name: t('nav.about'), href: "/about" },
       { name: t('nav.blog'), href: "/blog" },
-      { name: "Karriere", href: "#" },
-      { name: "Presse", href: "#" }
+      { name: t('footer.career'), href: "/career" },
+      { name: t('footer.press'), href: "/press" }
     ],
     services: [
       { name: t('nav.formino'), href: "/formino" },
       { name: t('nav.termino'), href: "/termino" },
-      { name: "Preise", href: "#" },
+      { name: t('footer.prices'), href: "/pricing" },
       { name: t('nav.faq'), href: "/faq" }
     ],
     support: [
-      { name: "Hilfe-Center", href: "#" },
+      { name: t('footer.help'), href: "/help" },
       { name: t('nav.contact'), href: "/contact" },
-      { name: "Status", href: "#" },
-      { name: "Feedback", href: "#" }
+      { name: t('footer.status'), href: "/status" },
+      { name: t('footer.feedback'), href: "/feedback" }
     ],
     legal: [
-      { name: "Datenschutz", href: "#" },
-      { name: "AGB", href: "#" },
-      { name: "Impressum", href: "#" },
-      { name: "Cookies", href: "#" }
+      { name: t('footer.privacy'), href: "/privacy" },
+      { name: t('footer.terms'), href: "/terms" },
+      { name: t('footer.imprint'), href: "/imprint" },
+      { name: t('footer.cookies'), href: "/cookies" }
     ]
   };
 
