@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Mic, Upload, MessageSquare, CheckCircle, Users, Download, Eye, Shield, Building, Calculator, MicIcon, FileUpload, Send } from "lucide-react";
+import { FileText, Mic, Upload, MessageSquare, CheckCircle, Users, Download, Eye, Shield, Building, Calculator, MicIcon, Send } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -79,7 +79,7 @@ const SmartFormFillingPage = () => {
   ];
 
   const conversationSteps = [
-    { step: 1, title: "Primärdokumente hochladen", description: "Foto oder PDF hochladen", icon: FileUpload },
+    { step: 1, title: "Primärdokumente hochladen", description: "Foto oder PDF hochladen", icon: Upload },
     { step: 2, title: "KI-Konversation", description: "Sprachkonversation in Muttersprache", icon: Mic },
     { step: 3, title: "Formularerstellung", description: "Dynamische Extraktion aus Konversation", icon: FileText },
     { step: 4, title: "Beraterberatung", description: "Finale Genehmigung mit Berater", icon: Users },
@@ -203,7 +203,7 @@ const SmartFormFillingPage = () => {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <FileUpload className="w-5 h-5" />
+                  <Upload className="w-5 h-5" />
                   Primärdokumente hochladen (Foto oder PDF)
                 </CardTitle>
                 <CardDescription>
