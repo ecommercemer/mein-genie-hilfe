@@ -1,6 +1,6 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 import { Upload, Camera, Link as LinkIcon, FileText } from "lucide-react";
 
 const MultipleInputMethodsPage = () => {

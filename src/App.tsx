@@ -21,6 +21,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Upload from "./pages/Upload";
 import AIAnalysis from "./pages/AIAnalysis";
 import ReviewSend from "./pages/ReviewSend";
+import SmartFormFilling from "./pages/SmartFormFilling";
 import OCRTechnology from "./pages/OCRTechnology";
 import MultipleInputMethods from "./pages/MultipleInputMethods";
 import SmartValidation from "./pages/SmartValidation";
@@ -70,6 +71,9 @@ const App = () => (
             <Route path="/upload" element={<Upload />} />
             <Route path="/ai-analysis" element={<AIAnalysis />} />
             <Route path="/review-send" element={<ReviewSend />} />
+            
+            {/* Smart Form Filling */}
+            <Route path="/smart-form-filling" element={<SmartFormFilling />} />
             
             {/* Formino Feature Pages */}
             <Route path="/ocr-technology" element={<OCRTechnology />} />

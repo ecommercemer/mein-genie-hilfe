@@ -1,6 +1,6 @@
-
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 import { Shield } from "lucide-react";
 
 const SecureProcessingPage = () => {
